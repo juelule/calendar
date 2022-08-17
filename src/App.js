@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './App.css';
+const localizer = momentLocalizer(moment) // or globalizeLocalizer
 
-function App() {
+const App = () => {
   return (
+    // if it was a regular calendar i wouldn't have said anything
+    // but you had to get the biiiiiig calendar!
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="myCustomHeight">
+    <Calendar
+      localizer={localizer}
+      // events={myEventsList}
+      startAccessor="start"
+      endAccessor="end"
+      style={{ height: 800 }}
+    />
+  </div>
     </div>
   );
 }
